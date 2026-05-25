@@ -20,8 +20,8 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 flex items-center justify-between px-6 md:px-16 py-6 md:py-8 ${
-          isScrolled ? "bg-black/20 backdrop-blur-xl border-b border-white/5 py-5 md:py-6" : "bg-transparent"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 flex items-center justify-between px-6 md:px-16 py-2 md:py-4 ${
+          isScrolled ? "bg-black/20 backdrop-blur-xl border-b border-white/5 py-2 md:py-3" : "bg-transparent"
         }`}
       >
         {/* Logo - Updated to THE DASH MEDIA */}
@@ -34,7 +34,7 @@ export default function Header() {
             <img 
               src="/logo-transparent.png" 
               alt="Dash Media Logo" 
-              className="h-8 md:h-12 w-auto object-contain transition-transform duration-500 hover:scale-105" 
+              className="h-20 md:h-[100px] w-auto object-contain transition-transform duration-500 hover:scale-105" 
             />
           </motion.div>
         </Link>
@@ -81,20 +81,21 @@ export default function Header() {
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   animate={{ 
-                    opacity: hoveredIndex !== null && hoveredIndex === i ? 0.3 : 1,
+                    opacity: hoveredIndex === null ? 1 : (hoveredIndex === i ? 1 : 0.3),
                     y: 0,
-                    filter: hoveredIndex !== null && hoveredIndex === i ? "blur(0px)" : "drop-shadow(0 0 15px rgba(255,255,255,0.4))"
+                    scale: hoveredIndex === i ? 1.05 : 1,
+                    filter: hoveredIndex === i ? "drop-shadow(0 0 25px rgba(255,255,255,0.8))" : "drop-shadow(0 0 0px rgba(255,255,255,0))"
                   }}
                   transition={{ 
-                    delay: 0.1 + i * 0.05, 
-                    duration: 0.4,
-                    opacity: { duration: 0.3 }
+                    y: { delay: 0.1 + i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                    opacity: { duration: 0.3 },
+                    scale: { duration: 0.3 }
                   }}
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className="text-3xl md:text-6xl font-black tracking-tighter transition-all duration-300 uppercase leading-none"
+                  className="text-4xl md:text-6xl font-black tracking-tighter transition-colors uppercase leading-none"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}

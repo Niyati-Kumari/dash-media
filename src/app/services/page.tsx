@@ -26,7 +26,7 @@ const SERVICES_DATA = [
     id: 4,
     title: "AI & Chatbots",
     description: "AI-powered solutions including intelligent automation flows and custom chatbots to elevate customer engagement and efficiency.",
-    video: "https://www.datocms-assets.com/157026/1751320787-ai-synthetic-humans_fantasy-interactive_video-3-2.mp4"
+    video: "/youtube-bg-2.mp4"
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const SERVICES_DATA = [
     id: 6,
     title: "Cloud & DevOps Solutions",
     description: "Automated deployment pipelines and infrastructure as code to accelerate secure feature delivery and system scalability.",
-    video: "https://www.datocms-assets.com/157026/1748025860-rc_asset_montage_01.mp4"
+    video: "/youtube-bg.mp4"
   }
 ];
 

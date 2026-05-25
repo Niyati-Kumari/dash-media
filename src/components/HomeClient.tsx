@@ -5,9 +5,9 @@ import { X } from "lucide-react";
 import Header from "./Header";
 
 const HERO_VIDEOS = [
-  "https://www.datocms-assets.com/157026/1748025860-rc_asset_montage_01.mp4",
+  "/youtube-bg.mp4",
   "https://www.datocms-assets.com/157026/1778177871-hero.mp4",
-  "https://www.datocms-assets.com/157026/1751320787-ai-synthetic-humans_fantasy-interactive_video-3-2.mp4",
+  "/youtube-bg-2.mp4",
   "https://www.datocms-assets.com/157026/1765220548-slow-motion-generative-interfaces-fantasy-interactive.mp4"
 ];
 
@@ -22,13 +22,13 @@ const SHOWCASE_DATA = [
     id: 2,
     title: "Influencer Marketing",
     description: "Bridging the gap between brands and their audiences through authentic influencer collaborations.",
-    video: "https://www.datocms-assets.com/157026/1751320787-ai-synthetic-humans_fantasy-interactive_video-3-2.mp4"
+    video: "/youtube-bg-2.mp4"
   },
   {
     id: 3,
     title: "Event Production",
     description: "Specializing in luxury event production and global exhibition management.",
-    video: "https://www.datocms-assets.com/157026/1748025860-rc_asset_montage_01.mp4"
+    video: "/youtube-bg.mp4"
   }
 ];
 
@@ -213,8 +213,8 @@ export default function HomeClient() {
         </div>
       </section>
 
-      <section id="impact" className="relative h-[150vh] md:h-[180vh] w-full bg-black">
-        <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden px-6 md:px-16 pt-24 md:pt-40 pb-12 md:pb-24">
+      <section id="impact" className="relative h-[150dvh] md:h-[180dvh] w-full bg-black">
+        <div className="sticky top-0 h-[100dvh] w-full flex flex-col justify-between overflow-hidden px-6 md:px-16 pt-24 md:pt-40 pb-12 md:pb-24">
            <AutoVideoLoop videos={[...HERO_VIDEOS].reverse()} interval={4000} opacity={0.5} />
            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
            
@@ -257,53 +257,67 @@ export default function HomeClient() {
 
       <BrandsSection />
       <ReviewsSection />
-      <CareersSection onApply={() => setIsFormOpen(true)} />      <footer id="contact" className="relative z-20 bg-white text-black px-6 md:px-16 py-24 md:py-48 border-t border-black/5">
+      <CareersSection onApply={() => setIsFormOpen(true)} />
+      <footer id="contact" className="relative z-20 bg-black text-white px-6 md:px-16 pt-24 pb-8 md:pt-32 md:pb-10 border-t border-white/10">
         <div className="relative z-10 max-w-[1400px] mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8 md:gap-12">
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
-                className="text-4xl md:text-[3.5vw] font-black tracking-tighter leading-[0.9] uppercase"
+                className="text-4xl md:text-[4.5vw] font-black tracking-tighter leading-[0.9] uppercase flex flex-col gap-1 md:gap-2"
               >
-                Let's <br />create the <br /><span className="text-black/30">unprecedented.</span>
+                <span className="text-white/20 hover:text-white transition-colors duration-700 cursor-default">LET'S</span>
+                <span className="text-white/50 hover:text-white transition-colors duration-700 cursor-default">CREATE THE</span>
+                <span className="text-white hover:text-white/50 transition-colors duration-700 cursor-default">UNPRECEDENTED.</span>
               </motion.h2>
               
               <motion.button 
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => setIsFormOpen(true)} 
-                className="w-fit bg-black text-white px-10 py-4 rounded-full font-black text-base md:text-lg uppercase tracking-widest transition-all duration-500 shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.15)]"
+                className="group mt-2 md:mt-6 relative w-fit overflow-hidden rounded-full bg-white px-8 py-4 md:px-10 md:py-5 font-bold uppercase tracking-[0.2em] text-black text-xs md:text-sm transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.15)]"
               >
-                Get in Touch
+                <span className="relative z-10 flex items-center gap-4">
+                  Start a Project
+                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
               </motion.button>
             </div>
 
             <div className="flex lg:justify-end">
-              <div className="space-y-8">
-                <p className="text-xs font-bold uppercase tracking-[0.4em] text-blue-600">Connect</p>
-                <div className="space-y-4 text-sm md:text-base font-medium text-black/60">
-                  <a href="#" className="block hover:text-black transition-colors">Instagram</a>
-                  <a href="#" className="block hover:text-black transition-colors">LinkedIn</a>
-                  <a href="#" className="block hover:text-black transition-colors">Twitter (X)</a>
-                  <a href="#" className="block hover:text-black transition-colors">Behance</a>
+              <div className="grid grid-cols-2 gap-12 md:gap-24">
+                <div className="space-y-6 md:space-y-8">
+                  <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-blue-500">Socials</p>
+                  <div className="space-y-3 md:space-y-4 text-sm md:text-base font-medium text-white/60">
+                    <a href="https://www.instagram.com/thedashmedia09?igsh=MWx4d3Bvd2o3aWZjaw==" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">Instagram</a>
+                    <a href="https://www.linkedin.com/in/aniket-khemka" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">LinkedIn</a>
+                    <a href="mailto:aniket@thedashmedia.com" className="block hover:text-white transition-colors">Gmail</a>
+                    <a href="https://wa.me/918506902192" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">WhatsApp</a>
+                  </div>
+                </div>
+                <div className="space-y-6 md:space-y-8">
+                  <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-blue-500">Offices</p>
+                  <div className="space-y-3 md:space-y-4 text-sm md:text-base font-medium text-white/60">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Atal+Incubation+Centre+GGSIPU" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">New Delhi</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-32 pt-12 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-[10vw] md:text-[4vw] font-black tracking-tighter opacity-5 select-none">
-              THE DASH MEDIA
+          <div className="mt-16 md:mt-24 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-4">
+               <img src="/logo-transparent.png" alt="Dash Media" className="h-5 object-contain invert brightness-0" />
+               <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">© 2026 THE DASH MEDIA.</span>
             </div>
-            <div className="flex flex-col md:items-end gap-2 text-[10px] md:text-xs font-bold uppercase tracking-widest text-black/30">
-              <span>© 2026 THE DASH MEDIA. ALL RIGHTS RESERVED.</span>
-              <div className="flex gap-4">
-                <a href="#" className="hover:text-black">Privacy Policy</a>
-                <a href="#" className="hover:text-black">Terms of Service</a>
-              </div>
+            <div className="flex gap-6 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
@@ -404,7 +418,7 @@ function BrandsSection() {
     // 1s interval as requested for faster rotation
     const timer = setInterval(() => {
       setBrandIndex((prev) => (prev + 1) % BRANDS.length);
-    }, 2500); // 2.5s for a more premium rotation speed
+    }, 1000); // 1s rotation speed
     
     return () => clearInterval(timer);
   }, [BRANDS.length]);
@@ -447,14 +461,11 @@ function BrandsSection() {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="flex items-center justify-center"
               >
-                <motion.img 
+                <img 
                   src={currentBrand.logo} 
                   alt={currentBrand.name} 
-                  animate={{ 
-                    filter: ["brightness(1) invert(1) grayscale(1) contrast(300%)", "brightness(1.5) invert(1) grayscale(1) contrast(300%)", "brightness(1) invert(1) grayscale(1) contrast(300%)"],
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="h-20 md:h-40 w-auto object-contain mix-blend-screen opacity-100 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                  className="h-20 md:h-40 w-auto object-contain opacity-100 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] invert brightness-0 saturate-100"
+                  style={{ filter: "brightness(0) invert(1)" }}
                 />
               </motion.div>
             </AnimatePresence>
@@ -465,6 +476,52 @@ function BrandsSection() {
 }
 
 function ContactPanel({ onClose }: { onClose: () => void }) {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Build payload for Web3Forms
+    const data = {
+      access_key: "76f16762-6375-47b2-b9e7-3d1d75d79029",
+      subject: "New Invite Request - Dash Media",
+      name: formData.get("name"),
+      email: formData.get("email"),
+      company: formData.get("company"),
+      title: formData.get("title"),
+      availability: formData.get("availability"),
+    };
+
+    try {
+      // Send to raiyn1279@gmail.com (Web3Forms registered email)
+      const res1 = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      // Send copy to aniket@thedashmedia.com using a second access key or same with different to
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...data, access_key: "76f16762-6375-47b2-b9e7-3d1d75d79029", to: "aniket@thedashmedia.com" }),
+      });
+
+      const json = await res1.json();
+      if (json.success) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm" />
@@ -472,32 +529,47 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
         <button onClick={onClose} className="absolute top-8 right-8 p-2 hover:bg-gray-100 rounded-full transition-colors"><X size={20} /></button>
         <div className="mt-8 flex flex-col gap-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Request an Invite</h2>
-          <form className="flex flex-col gap-6 w-full" onSubmit={(e) => e.preventDefault()}>
-             <FormInput label="Your Name" />
-             <FormInput label="Work Email" />
-             <FormInput label="Company" />
-             <FormInput label="Title" />
-             <div className="flex flex-col gap-3">
-                <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Which days are you available?</label>
-                <textarea className="w-full border-b border-gray-200 py-3 focus:border-black outline-none transition-colors resize-none h-24 text-sm" />
-             </div>
-             <div className="flex items-center gap-3 mt-4">
-                <input type="checkbox" id="privacy" className="w-4 h-4 rounded border-gray-300 focus:ring-black" />
-                <label htmlFor="privacy" className="text-xs font-medium text-gray-500">I agree to the <span className="underline cursor-pointer">privacy policy</span>.</label>
-             </div>
-             <button className="mt-6 bg-black text-white font-bold py-4 px-10 rounded-lg text-lg hover:opacity-80 transition-all self-end md:self-auto">Submit</button>
-          </form>
+
+          {status === 'success' ? (
+            <div className="flex flex-col items-center gap-6 py-16 text-center">
+              <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center">
+                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <h3 className="text-2xl font-bold">Message Sent!</h3>
+              <p className="text-gray-500 text-sm">We&apos;ve received your request and will get back to you soon.</p>
+              <button onClick={onClose} className="mt-4 bg-black text-white font-bold py-3 px-8 rounded-lg hover:opacity-80 transition-all">Close</button>
+            </div>
+          ) : (
+            <form className="flex flex-col gap-6 w-full" onSubmit={handleSubmit}>
+               <FormInput label="Your Name" name="name" required />
+               <FormInput label="Work Email" name="email" type="email" required />
+               <FormInput label="Company" name="company" />
+               <FormInput label="Title" name="title" />
+               <div className="flex flex-col gap-3">
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Which days are you available?</label>
+                  <textarea name="availability" required className="w-full border-b border-gray-200 py-3 focus:border-black outline-none transition-colors resize-none h-24 text-sm" />
+               </div>
+               <div className="flex items-center gap-3 mt-4">
+                  <input type="checkbox" id="privacy" name="privacy_agreed" required className="w-4 h-4 rounded border-gray-300 focus:ring-black" />
+                  <label htmlFor="privacy" className="text-xs font-medium text-gray-500">I agree to the <span className="underline cursor-pointer">privacy policy</span>.</label>
+               </div>
+               {status === 'error' && <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>}
+               <button type="submit" disabled={status === 'loading'} className="mt-6 bg-black text-white font-bold py-4 px-10 rounded-lg text-lg hover:opacity-80 transition-all self-end md:self-auto disabled:opacity-50">
+                 {status === 'loading' ? 'Sending...' : 'Submit'}
+               </button>
+            </form>
+          )}
         </div>
       </motion.div>
     </>
   );
 }
 
-function FormInput({ label }: { label: string }) {
+function FormInput({ label, name, type = "text", required = false }: { label: string, name: string, type?: string, required?: boolean }) {
   return (
     <div className="flex flex-col gap-1 group">
-      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest group-focus-within:text-black transition-colors">{label}</label>
-      <input type="text" className="w-full border-b border-gray-200 py-3 focus:border-black outline-none transition-colors text-sm" />
+      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest group-focus-within:text-blue-600 transition-colors">{label}</label>
+      <input type={type} name={name} required={required} className="w-full border-b border-gray-200 py-3 focus:border-blue-600 outline-none transition-all text-sm bg-transparent" />
     </div>
   );
 }
@@ -510,20 +582,33 @@ function HeroSequence() {
   const textY = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <section ref={containerRef} className="relative h-[200vh] w-full">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+    <section ref={containerRef} className="relative h-[200dvh] w-full">
+      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
         <motion.div style={{ scale, opacity }} className="absolute inset-0">
           <AutoVideoLoop videos={HERO_VIDEOS} interval={4000} />
           <div className="absolute inset-0 bg-black/50" />
         </motion.div>
         <div className="relative z-10 h-full w-full flex flex-col justify-center items-center text-center px-6">
            <motion.div style={{ y: textY }}>
-             <h1 className="text-[14vw] md:text-[6vw] font-black tracking-tighter leading-tight uppercase mix-blend-overlay">
+             <h1 className="text-[16vw] md:text-[9vw] lg:text-[7vw] font-black tracking-tighter leading-tight uppercase mix-blend-overlay">
                THE <br className="md:hidden" /> DASH <br className="md:hidden" /> MEDIA
              </h1>
-             <p className="text-[10px] md:text-lg font-bold tracking-[0.4em] uppercase mt-6 text-white/60">Lead by Design</p>
+             <p className="text-[10px] md:text-sm lg:text-lg font-bold tracking-[0.4em] uppercase mt-6 text-white/60">Lead by Design</p>
            </motion.div>
         </div>
+        
+        {/* Scroll Indicator */}
+        <motion.div 
+          style={{ opacity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        >
+          <span className="text-[9px] uppercase tracking-[0.3em] text-white/40 font-bold">Scroll</span>
+          <motion.div 
+            animate={{ y: [0, 8, 0] }} 
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent"
+          />
+        </motion.div>
       </div>
     </section>
   );
@@ -576,8 +661,8 @@ function VerticalShowcase() {
   const smoothTextY = useSpring(textY, { stiffness: 80, damping: 25 });
 
   return (
-    <section id="services" ref={targetRef} className="relative h-[400vh] bg-black">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+    <section id="services" ref={targetRef} className="relative h-[400dvh] bg-black">
+      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
             <motion.div key={SHOWCASE_DATA[activeIndex]?.id || 0} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }} className="absolute inset-0">
@@ -591,10 +676,10 @@ function VerticalShowcase() {
           </AnimatePresence>
         </div>
         <div className="relative z-10 h-full w-full flex items-center justify-center">
-          <div className="max-w-[1400px] w-full px-6 md:px-16 h-[100vh] overflow-hidden">
-             <motion.div style={{ y: smoothTextY }} className="flex flex-col h-[300vh]">
+          <div className="max-w-[1400px] w-full px-6 md:px-16 h-[100dvh] overflow-hidden">
+             <motion.div style={{ y: smoothTextY }} className="flex flex-col h-[300dvh]">
                 {SHOWCASE_DATA.map((item, i) => (
-                  <div key={item.id} className="h-[100vh] flex flex-col justify-center">
+                  <div key={item.id} className="h-[100dvh] flex flex-col justify-center">
                     <motion.div 
                       animate={{ 
                         opacity: i === activeIndex ? 1 : 0, 
@@ -630,7 +715,7 @@ function VerticalShowcase() {
               </p>
               <a 
                 href="/services"
-                className="inline-flex items-center gap-3 md:gap-4 px-6 py-3 md:px-8 md:py-4 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-white font-bold uppercase tracking-widest text-[9px] md:text-xs transition-all hover:scale-105 active:scale-95"
+                className="group inline-flex items-center gap-3 md:gap-4 px-6 py-3 md:px-8 md:py-4 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-white font-bold uppercase tracking-widest text-[9px] md:text-xs transition-all hover:scale-105 active:scale-95"
               >
                 Explore Now
                 <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform group-hover:translate-x-1">
@@ -648,7 +733,7 @@ function VerticalShowcase() {
 
 function CareersSection({ onApply }: { onApply: () => void }) {
   return (
-    <section id="careers" className="relative min-h-screen w-full bg-black overflow-hidden flex items-center">
+    <section id="careers" className="relative min-h-[100dvh] w-full bg-black overflow-hidden flex items-center">
       <div className="absolute inset-0 z-0">
         <AutoVideoLoop 
           videos={[HERO_VIDEOS[3], HERO_VIDEOS[5], HERO_VIDEOS[7], HERO_VIDEOS[2]]} 
@@ -822,10 +907,10 @@ function ServiceBox({ num, title, video, projects, slug }: { num: string, title:
 
 function ExpertiseCard({ icon, title, desc, color }: { icon: React.ReactNode, title: string, desc: string, color: string }) {
   const colors = {
-    blue: "text-blue-600 bg-blue-600/10 border-blue-600/20",
-    emerald: "text-emerald-600 bg-emerald-600/10 border-emerald-600/20",
-    purple: "text-purple-600 bg-purple-600/10 border-purple-600/20",
-    rose: "text-rose-600 bg-rose-600/10 border-rose-400/20",
+    blue: "text-blue-600 bg-blue-600/10 border-blue-600/20 group-hover:bg-blue-600/20 group-hover:border-blue-600/30",
+    emerald: "text-emerald-600 bg-emerald-600/10 border-emerald-600/20 group-hover:bg-emerald-600/20 group-hover:border-emerald-600/30",
+    purple: "text-purple-600 bg-purple-600/10 border-purple-600/20 group-hover:bg-purple-600/20 group-hover:border-purple-600/30",
+    rose: "text-rose-600 bg-rose-600/10 border-rose-400/20 group-hover:bg-rose-600/20 group-hover:border-rose-400/30",
   };
   
   return (
@@ -833,13 +918,13 @@ function ExpertiseCard({ icon, title, desc, color }: { icon: React.ReactNode, ti
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="p-8 bg-black/5 border border-black/10 rounded-[32px] hover:bg-black/[0.08] transition-all duration-500 group"
+      className="p-8 bg-black/5 border border-black/10 rounded-[32px] hover:bg-black/[0.08] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-500 group cursor-pointer"
     >
-      <div className={`h-12 w-12 rounded-2xl flex items-center justify-center mb-6 border ${colors[color as keyof typeof colors]}`}>
+      <div className={`h-12 w-12 rounded-2xl flex items-center justify-center mb-6 border transition-colors duration-500 ${colors[color as keyof typeof colors]}`}>
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-4 text-black">{title}</h3>
-      <p className="text-sm text-black/40 leading-relaxed group-hover:text-black/60 transition-colors font-medium">
+      <h3 className="text-xl font-bold mb-4 text-black group-hover:text-blue-600 transition-colors duration-300">{title}</h3>
+      <p className="text-sm text-black/50 leading-relaxed group-hover:text-black/70 transition-colors font-medium">
         {desc}
       </p>
     </motion.div>
