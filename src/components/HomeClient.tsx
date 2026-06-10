@@ -94,7 +94,7 @@ export default function HomeClient() {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
-    <div className="bg-[#050505] text-white selection:bg-white selection:text-black font-sans">
+    <div className="bg-[#050505] text-white selection:bg-white selection:text-black font-sans overflow-x-hidden">
       <Header />
       
       <HeroSequence />
@@ -118,9 +118,9 @@ export default function HomeClient() {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ delay: 0.1 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-black leading-[0.9] tracking-tighter uppercase mb-10"
+              className="text-[10vw] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-black leading-[0.9] tracking-tighter uppercase mb-10"
             >
-              Turning Brand <br className="hidden md:block" />Ideas Into <br className="hidden md:block" />Experiences.
+              Turning Brand<br />Ideas Into<br />Experiences.
             </motion.h2>
 
             <motion.div 
@@ -139,12 +139,12 @@ export default function HomeClient() {
             </motion.div>
 
             <div className="mt-12 md:mt-20 flex flex-wrap gap-4 md:gap-8">
-               <div className="px-8 py-6 md:px-10 md:py-8 bg-black/5 border border-black/10 rounded-3xl">
-                  <h4 className="text-3xl md:text-5xl font-black text-blue-600 mb-1">99.9%</h4>
+               <div className="px-5 py-4 md:px-10 md:py-8 bg-black/5 border border-black/10 rounded-3xl">
+                  <h4 className="text-2xl md:text-5xl font-black text-blue-600 mb-1">99.9%</h4>
                   <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Uptime Mindset</p>
                </div>
-               <div className="px-8 py-6 md:px-10 md:py-8 bg-black/5 border border-black/10 rounded-3xl">
-                  <h4 className="text-3xl md:text-5xl font-black text-black mb-1">PREMIUM</h4>
+               <div className="px-5 py-4 md:px-10 md:py-8 bg-black/5 border border-black/10 rounded-3xl">
+                  <h4 className="text-2xl md:text-5xl font-black text-black mb-1">PREMIUM</h4>
                   <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Digital Expertise</p>
                </div>
             </div>
@@ -220,20 +220,20 @@ export default function HomeClient() {
            
            {/* Top Left: Main Narrative */}
            <div className="relative z-10 max-w-2xl">
-              <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} className="text-2xl md:text-[2.2vw] font-bold leading-tight tracking-tight text-white">
-                We've helped our partners win their place in the hands, homes, and hearts of millions— <span className="text-white/30">combining strategic storytelling and design to realize the unprecedented.</span>
+              <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} className="text-base sm:text-xl md:text-[2.2vw] font-bold leading-snug tracking-tight text-white">
+                We&apos;ve helped our partners win their place in the hands, homes, and hearts of millions— <span className="text-white/30">combining strategic storytelling and design to realize the unprecedented.</span>
               </motion.h2>
            </div>
 
            {/* Bottom Content: Stats & Expertise */}
-           <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-end">
-              <div className="grid grid-cols-2 gap-8 border-t border-white/10 pt-8 md:pt-12">
+           <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-end">
+              <div className="grid grid-cols-2 gap-6 border-t border-white/10 pt-8 md:pt-12">
                 <div>
-                  <h4 className="text-4xl md:text-6xl font-black text-white mb-2 uppercase tracking-tighter">100+</h4>
+                  <h4 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-2 uppercase tracking-tighter">100+</h4>
                   <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-white/40">Brands Transformed</p>
                 </div>
                 <div>
-                  <h4 className="text-4xl md:text-6xl font-black text-white mb-2 uppercase tracking-tighter">50+</h4>
+                  <h4 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-2 uppercase tracking-tighter">50+</h4>
                   <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-white/40">Global Exhibitions</p>
                 </div>
               </div>
@@ -265,9 +265,9 @@ export default function HomeClient() {
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
-                className="text-[12vw] sm:text-5xl md:text-[4.5vw] font-black tracking-tighter leading-[0.85] uppercase flex flex-col gap-1 md:gap-2"
+                className="text-[10vw] sm:text-5xl md:text-[4.5vw] font-black tracking-tighter leading-[0.85] uppercase flex flex-col gap-1 md:gap-2"
               >
-                <span className="text-white/20 hover:text-white transition-colors duration-700 cursor-default">LET'S</span>
+                <span className="text-white/20 hover:text-white transition-colors duration-700 cursor-default">LET&apos;S</span>
                 <span className="text-white/50 hover:text-white transition-colors duration-700 cursor-default">CREATE THE</span>
                 <span className="text-white hover:text-white/50 transition-colors duration-700 cursor-default">UNPRECEDENTED.</span>
               </motion.h2>
@@ -689,9 +689,9 @@ function VerticalShowcase() {
                       }} 
                       transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                      <h3 className="text-sm md:text-xl font-black text-blue-500 mb-4 tracking-[0.3em]">0{item.id} —</h3>
-                      <h2 className="text-[11vw] sm:text-6xl md:text-[5vw] font-black tracking-tighter leading-[0.85] uppercase mb-6 sm:mb-8">{item.title}</h2>
-                      <p className="text-base md:text-xl text-white/60 max-w-md leading-snug font-medium">{item.description}</p>
+                      <h3 className="text-xs md:text-xl font-black text-blue-500 mb-3 tracking-[0.2em]">0{item.id} —</h3>
+                      <h2 className="text-[9vw] sm:text-5xl md:text-[5vw] font-black tracking-tighter leading-[0.9] uppercase mb-4 sm:mb-8 break-words">{item.title}</h2>
+                      <p className="text-sm md:text-xl text-white/60 max-w-md leading-snug font-medium">{item.description}</p>
                     </motion.div>
                   </div>
                 ))}
@@ -755,9 +755,9 @@ function CareersSection({ onApply }: { onApply: () => void }) {
               initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
-              className="text-[12vw] sm:text-6xl md:text-[5vw] font-black leading-[0.85] tracking-tighter uppercase mb-8 md:mb-12 text-white"
+              className="text-[10vw] sm:text-6xl md:text-[5vw] font-black leading-[0.85] tracking-tighter uppercase mb-8 md:mb-12 text-white"
             >
-              Building <br />the next <br />generation.
+              Building<br />the next<br />generation.
             </motion.h2>
 
             <div className="space-y-6 md:space-y-8 max-w-xl">

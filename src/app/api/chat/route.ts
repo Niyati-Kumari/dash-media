@@ -54,10 +54,20 @@ ${dashmediaContext}
     const reply = response.text || "I'm sorry, I couldn't process that request right now.";
 
     return NextResponse.json({ reply });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Chat API Error:', error);
+    
+    // If it's an API key error, give a specific message
+    const errorMessage = error?.message || "";
+    if (errorMessage.includes("API key not valid") || errorMessage.includes("API_KEY_INVALID")) {
+      return NextResponse.json(
+        { reply: "⚠️ The API key provided is invalid. Please get a new key from aistudio.google.com and update the .env.local file." },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
-      { reply: "I'm having trouble connecting to my brain right now. Please try again later." },
+      { reply: `Error: ${errorMessage || "I'm having trouble connecting right now."}` },
       { status: 500 }
     );
   }
